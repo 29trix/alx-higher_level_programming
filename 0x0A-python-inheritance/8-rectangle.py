@@ -1,17 +1,20 @@
 #!/usr/bin/python3
-"""Defines a class and inherited class-checking function."""
+'''
+    Implementing a Geometry class
+'''
 
 
-class BaseGeometry:
-    """BaseGeomerty class"""
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
-    def area(self):
-        """raises an Exception with the message """
-        raise Exception('area() is no implemented')
 
-    def integer_validator(self, name, value):
-        """validate if value is strictly positive integer grater than 0"""
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+class Rectangle(BaseGeometry):
+    '''
+        Implements a rectangle
+    '''
+
+    def __init__(self, width, height):
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+
+        self.__width = width
+        self.__height = height
