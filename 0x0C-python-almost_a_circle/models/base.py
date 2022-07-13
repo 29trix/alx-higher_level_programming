@@ -4,6 +4,7 @@
 '''
 import json
 import csv
+from logging import exception
 
 
 class Base:
@@ -84,7 +85,7 @@ class Base:
         try:
             with open(file_name, encoding="UTF8") as fd:
                 content = cls.from_json_string(fd.read())
-        except:
+        except exception:
             return []
 
         instances = []
